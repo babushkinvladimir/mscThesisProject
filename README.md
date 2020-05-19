@@ -1,4 +1,4 @@
-[![N|Solid](https://github.com/babushkinvladimir/mscThesisProject/blob/master/IMG/Logo.png)](http://usm.md/?lang=en)
+<a href="url"><img src="https://github.com/babushkinvladimir/mscThesisProject/blob/master/IMG/Logo.png" align="center" height="48" width="48" ></a>
 #### Universitatea de Stat din Moldova
 #### State University of Moldova
 # DEVELOPMENT OF AUTOMATIC LEARNING ALGORITHMS FOR PRICE AND LOAD PREDICTION IN ELECTRICAL NETWORK
