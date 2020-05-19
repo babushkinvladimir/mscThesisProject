@@ -23,15 +23,18 @@ This work aims to investigate non-linear methods for time series prediction and 
   
 ## DATASETS
 </div>
+
   - Monthly electricity balance data provided by “Moldelectrica” Transmission System Operator [1] for Moldova
   - Electrical load and price data provided by New York Independent System Operator [2] for New York City district (N.Y.C.)
   - Electrical load and price data provided by Australian Energy Market Operator [3] for New South Wales (N.S.W.)
   - COVID-19 New York City data [4]
   - COVID-19 New South Wales, Australia data [5]
+  
 <div align="center">
   
 ## APIs
 </div>
+
   - Keras  [6] -- a high-level neural networks API, written in Python and capable of running on top of TensorFlow, CNTK, or Theano. We use Keras to develop sequential CNN and LSTM models.
   - Scikit-learn [7] is a free software machine learning library for Python.
   - k-medoids clustering package [8] within the scikit-learn-extra package. Scikit-learn-extra is a Python module for machine learning that extends scikit-learn. It includes algorithms that are useful but do not satisfy the scikit-learn inclusion criteria, for instance due to their novelty or lower citation number.
