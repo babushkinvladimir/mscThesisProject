@@ -43,6 +43,7 @@ This work aims to investigate non-linear methods for time series prediction and 
   - Scikit-learn [7] is a free software machine learning library for Python.
   - k-medoids clustering package [8] within the scikit-learn-extra package. Scikit-learn-extra is a Python module for machine learning that extends scikit-learn. It includes algorithms that are useful but do not satisfy the scikit-learn inclusion criteria, for instance due to their novelty or lower citation number.
   - MiniSom [9] a minimalistic Numpy based implementation of the Self Organizing Maps (SOM)
+  - SciKit-Fuzzy [10] is a collection of fuzzy logic algorithms for SciPy Stack, Python
   
 ## REFERENCES
 
@@ -64,4 +65,5 @@ This work aims to investigate non-linear methods for time series prediction and 
 
 [9] V. Giuseppe, "MiniSom," https://github.com/JustGlowing/minisom
 
+[10] "SciKit-Fuzzy," https://pythonhosted.org/scikit-fuzzy/
 
