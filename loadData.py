@@ -11,13 +11,14 @@
     (dataset, dates)   : array of hourly demand/price values and corresponding days
 """
 
-import os
-import glob
-import pandas as pd
-import numpy as np
 import datetime
+import glob
+import os
 
-#http://mis.nyiso.com/public/P-58Blist.htm
+import numpy as np
+import pandas as pd
+
+
 def loadData(datapath, region, price=False):
     path = os.getcwd()
     os.chdir(path)
@@ -53,7 +54,8 @@ def loadData(datapath, region, price=False):
                 if price == False:
                     allLoadDf.loc[i] = [dateTime[0].date()] + list(timeSeriesDfNyc24['Load'].apply(pd.to_numeric))
                 else:
-                    allLoadDf.loc[i] = [dateTime[0].date()] + list(timeSeriesDfNyc24['LBMP ($/MWHr)'].apply(pd.to_numeric))
+                    allLoadDf.loc[i] = [dateTime[0].date()] + list(
+                        timeSeriesDfNyc24['LBMP ($/MWHr)'].apply(pd.to_numeric))
             else:  # skip
                 daysSkipped.append(dateTime[0].date())
 
@@ -68,7 +70,7 @@ def loadData(datapath, region, price=False):
         np.argwhere(np.isnan(dataset))
         dates = dates.reset_index(drop=True)
         return (dataset, dates)
-    
+
     if region == 'NSW':
         nswData = sorted(glob.glob(path + datapath + '/**.csv'))
         # to store aggregated data
@@ -96,17 +98,20 @@ def loadData(datapath, region, price=False):
             timeSeriesDfNsw24 = tmpDf.loc[dateTime24]
             timeSeriesDfNsw24 = timeSeriesDfNsw24.reset_index()
             if price == False:
-                x = np.reshape(list(timeSeriesDfNsw24['TOTALDEMAND'].apply(pd.to_numeric)), (int(len(timeSeriesDfNsw24)/24), 24)).T
+                x = np.reshape(list(timeSeriesDfNsw24['TOTALDEMAND'].apply(pd.to_numeric)),
+                               (int(len(timeSeriesDfNsw24) / 24), 24)).T
             else:
-                x = np.reshape(list(timeSeriesDfNsw24['RRP'].apply(pd.to_numeric)),(int(len(timeSeriesDfNsw24) / 24), 24)).T
+                x = np.reshape(list(timeSeriesDfNsw24['RRP'].apply(pd.to_numeric)),
+                               (int(len(timeSeriesDfNsw24) / 24), 24)).T
             dates = []
-            for  d in range(len(timeSeriesDfNsw24)):
-                if d%24 == 0:
-                    dates.append(datetime.datetime.strptime(timeSeriesDfNsw24["SETTLEMENTDATE"].loc[d], "%Y/%m/%d %H:%M:%S"))
+            for d in range(len(timeSeriesDfNsw24)):
+                if d % 24 == 0:
+                    dates.append(
+                        datetime.datetime.strptime(timeSeriesDfNsw24["SETTLEMENTDATE"].loc[d], "%Y/%m/%d %H:%M:%S"))
             currentLoadDf['date'] = dates
 
-            for k in range(1,25):
-                currentLoadDf[str(k)] = x[k-1]
+            for k in range(1, 25):
+                currentLoadDf[str(k)] = x[k - 1]
 
             allLoadDf = allLoadDf.append(currentLoadDf, ignore_index=True)
 
