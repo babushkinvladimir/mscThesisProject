@@ -1,17 +1,16 @@
 <p align="center">
 <a href="http://usm.md/?lang=en"><img src="https://github.com/babushkinvladimir/mscThesisProject/blob/master/IMG/Logo.png" align="center" height="100"></a>
 </p>
-<p style="text-align: center;">
-  
-#### Universitatea de Stat din Moldova
-  
+<p style="text-align: center;"> #### Universitatea de Stat din Moldova </p>
+<div align="center"> 
 #### State University of Moldova
 
 # DEVELOPMENT OF AUTOMATIC LEARNING ALGORITHMS FOR PRICE AND LOAD PREDICTION IN ELECTRICAL NETWORK
 
 ##### TEZELOR DE LICENŢĂ/MASTER
 ##### MSC THESIS
-</p>
+</div>
+
 ## ABSTRACT
 Nowadays, the electricity market is becoming more diverse and deregulated due to the gradual introduction of smart grids. A smart grid analyzes information about electricity supply and demand to optimize the electric power production. This requires the knowledge of future electricity load that allow the Independent Power Producers to schedule the electric power generation to meet the peak demand and minimize the production costs. The IPPs can also implement the dynamic pricing to incentivize the end-users shifting the electricity consumption to off-peak hours. In other word, consumers, knowing the future electricity prices, can adjust their consumption profile to achieve an optimal utilization of electric power at the lowest cost. Other entities of the electricity market e.g. retailers and traders are also interested in electricity price prediction to optimize their financial operations. Thus, the accurate forecasting of price and load is essential for maintaining a stable interplay between demand and supply in the dynamic electricity market. 
 
