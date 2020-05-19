@@ -6,7 +6,7 @@
 
 #### Universitatea de Stat din Moldova
 
-#### State University of Moldova
+#### Moldova State University
 
 # DEVELOPMENT OF AUTOMATIC LEARNING ALGORITHMS FOR PRICE AND LOAD PREDICTION IN ELECTRICAL NETWORK
 
