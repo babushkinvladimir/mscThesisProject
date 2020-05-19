@@ -1,8 +1,12 @@
 <p align="center">
 <a href="http://usm.md/?lang=en"><img src="https://github.com/babushkinvladimir/mscThesisProject/blob/master/IMG/Logo.png" align="center" height="100"></a>
-
+</p>
+<p style="text-align: center;">
+  
 #### Universitatea de Stat din Moldova
+  
 #### State University of Moldova
+
 # DEVELOPMENT OF AUTOMATIC LEARNING ALGORITHMS FOR PRICE AND LOAD PREDICTION IN ELECTRICAL NETWORK
 
 ##### TEZELOR DE LICENŢĂ/MASTER
