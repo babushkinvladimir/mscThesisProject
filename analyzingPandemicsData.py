@@ -21,7 +21,7 @@ region = 'NSW'
 path = os.getcwd()
 os.chdir(path)
 dataPath = path + '/DATA/COVID/'
-figuresDir = path + '/FIGURES/'
+figuresDir = path + '/results/FIGURES/'
 testYear = 2020
 
 if region == 'NYC':
@@ -279,8 +279,13 @@ plt.xlim([-24, len(actualDaysArrayLstm) + 24])
 plt.ylim([np.min(actualDaysArrayLstm) - 50, np.max(actualDaysArrayLstm) + 50])
 plt.xticks(np.arange(-1, len(actualDaysArrayLstm), 24), xTicksLabels, fontsize=6, rotation=-60, ha='left')
 plt.ylabel('Load, MW')
-plt.title("Forecasting electricity load with LSTM, " + region + ", 2020")
-plt.subplots_adjust(top=0.88, bottom=0.11, right=0.98, left=0.05, hspace=0, wspace=0)
+if region == 'NSW':
+    plt.title("Forecasting electricity load with LSTM, New South Wales, Australia, from " + xTicksLabels[0] + ', ' + str(
+        testYear) + ' to ' + xTicksLabels[-1] + ', ' + str(testYear), fontsize=16)
+if region == 'NYC':
+    plt.title("Forecasting electricity load with LSTM, New York City, US, from " + xTicksLabels[0] + ', ' + str(
+        testYear) + ' to ' + xTicksLabels[-1] + ', ' + str(testYear), fontsize=16)
+plt.subplots_adjust(top=0.88, bottom=0.11, right=0.98, left=0.06, hspace=0, wspace=0)
 plt.legend()
 plt.savefig(figuresDir + "lstmForecast_" + region + "_" + str(testYear) + ".pdf",
             bbox_inches='tight',
@@ -291,11 +296,11 @@ plt.savefig(figuresDir + "lstmForecast_" + region + "_" + str(testYear) + ".pdf"
 # load cnn data
 ########################################################################################################################
 measuresDfTestCnn = pd.read_csv(
-    path + '/results/cnnPrice' + region + '/' + "measuresCnnTest_15_1500_200_" + str(testYear) + ".csv")
+    path + '/results/cnnLoad' + region + '/' + "measuresCnnTest_15_1500_200_" + str(testYear) + ".csv")
 actualDaysCnnTest = np.load(
-    path + '/results/cnnPrice' + region + '/' + "actualDaysCnnTest_15_1500_200_" + str(testYear) + ".npy")
+    path + '/results/cnnLoad' + region + '/' + "actualDaysCnnTest_15_1500_200_" + str(testYear) + ".npy")
 predictedDaysCnnTest = np.load(
-    path + '/results/cnnPrice' + region + '/' + "predictedDaysCnnTest_15_1500_200_" + str(testYear) + ".npy")
+    path + '/results/cnnLoad' + region + '/' + "predictedDaysCnnTest_15_1500_200_" + str(testYear) + ".npy")
 actualDaysArrayCnn = actualDaysCnnTest.flatten()
 predictedDaysArrayCnn = predictedDaysCnnTest.flatten()
 fig = plt.figure(figsize=(14, 4))
@@ -305,8 +310,13 @@ plt.xlim([-24, len(actualDaysArrayCnn) + 24])
 plt.ylim([np.min(actualDaysArrayCnn) - 50, np.max(actualDaysArrayCnn) + 50])
 plt.xticks(np.arange(-1, len(actualDaysArrayCnn), 24), xTicksLabels, fontsize=6, rotation=-60, ha='left')
 plt.ylabel('Load, MW')
-plt.title("Forecasting electricity load with CNN, " + region + ", 2020")
-plt.subplots_adjust(top=0.88, bottom=0.11, right=0.98, left=0.05, hspace=0, wspace=0)
+if region == 'NSW':
+    plt.title("Forecasting electricity load with CNN, New South Wales, Australia, from " + xTicksLabels[0] + ', ' + str(
+        testYear) + ' to ' + xTicksLabels[-1] + ', ' + str(testYear), fontsize=16)
+if region == 'NYC':
+    plt.title("Forecasting electricity load with CNN, New York City, US, from " + xTicksLabels[0] + ', ' + str(
+        testYear) + ' to ' + xTicksLabels[-1] + ', ' + str(testYear), fontsize=16)
+plt.subplots_adjust(top=0.88, bottom=0.11, right=0.98, left=0.06, hspace=0, wspace=0)
 plt.legend()
 plt.savefig(figuresDir + "cnnForecast_" + region + "_" + str(testYear) + ".pdf",
             bbox_inches='tight',
