@@ -8,6 +8,8 @@ from pandas import datetime
 from pandas.plotting import autocorrelation_plot
 from sklearn.metrics import mean_squared_error
 from statsmodels.tsa.arima_model import ARIMA
+from statsmodels.tsa.stattools import acf, pacf
+
 
 from MAE import MAE
 from MAPE import MAPE
@@ -75,9 +77,41 @@ loadMoldovaDf['load'] = loadArray
 datesColumn = loadMoldovaDf['date'].apply(lambda x: x.strftime('%b-%Y'))
 import numpy as np
 series = pd.Series(loadMoldovaDf['load'].values, index=loadMoldovaDf.date)
-series.plot()
+#series.plot()
 
 autocorrelation_plot(series)
+
+X = series.values
+X=X/1000
+size = int(len(X) * 0.66)
+train, test = X[0:size], X[size:len(X)]
+
+
+#calling auto correlation function
+lag_acf = acf(train, nlags=300)
+#Plot PACF:
+plt.figure(figsize=(16, 7))
+plt.plot(lag_acf,marker='+')
+plt.axhline(y=0,linestyle='--',color='gray')
+plt.axhline(y=-1.96/np.sqrt(len(train)),linestyle='--',color='gray')
+plt.axhline(y=1.96/np.sqrt(len(train)),linestyle='--',color='gray')
+plt.title('Autocorrelation Function')
+plt.xlabel('number of lags')
+plt.ylabel('correlation')
+plt.tight_layout()
+
+#calling partial correlation function
+lag_pacf = pacf(train, nlags=30, method='ols')
+#Plot PACF:
+plt.figure(figsize=(16, 7))
+plt.plot(lag_pacf,marker='+')
+plt.axhline(y=0,linestyle='--',color='gray')
+plt.axhline(y=-1.96/np.sqrt(len(train)),linestyle='--',color='gray')
+plt.axhline(y=1.96/np.sqrt(len(train)),linestyle='--',color='gray')
+plt.title('Partial Autocorrelation Function')
+plt.xlabel('Number of lags')
+plt.ylabel('correlation')
+plt.tight_layout()
 
 
 # fit model
@@ -86,11 +120,14 @@ model_fit = model.fit(disp=0)
 print(model_fit.summary())
 # plot residual errors
 residuals = DataFrame(model_fit.resid)
-residuals.plot()
-plt.show()
-residuals.plot(kind='kde')
-plt.show()
-print(residuals.describe())
+# residuals.plot()
+# plt.show()
+# residuals.plot(kind='kde')
+# plt.show()
+# print(residuals.describe())
+
+
+
 
 
 X = series.values
