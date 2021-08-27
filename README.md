@@ -16,9 +16,8 @@
 ###### TEZELOR DE LICENŢĂ/MASTER
 ###### MSC THESIS
 
-#### Link to [English version](https://github.com/babushkinvladimir/mscThesisProject/blob/master/thesisFinal_eng.pdf)
-  
-#### Link to [Russian version](https://github.com/babushkinvladimir/mscThesisProject/blob/master/thesisFinal_ru.pdf)
+#### [English version](https://github.com/babushkinvladimir/mscThesisProject/blob/master/thesisFinal_eng.pdf)
+#### [Russian version](https://github.com/babushkinvladimir/mscThesisProject/blob/master/thesisFinal_ru.pdf)
   
 ###### (code repository)
 
