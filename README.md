@@ -19,7 +19,6 @@
 #### [English version](https://github.com/babushkinvladimir/mscThesisProject/blob/master/thesisFinal_eng.pdf)
 #### [Russian version](https://github.com/babushkinvladimir/mscThesisProject/blob/master/thesisFinal_ru.pdf)
   
-###### (code repository)
 
 ## ABSTRACT
 </div>
